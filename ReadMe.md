@@ -15,7 +15,9 @@ Below is the detailed guide on how to deploy the `SkillSync-ASG.yml` CloudFormat
 
 #### **Step 2: Create the CloudFormation Template File**
 
-Create a file named `SkillSync-ASG.yml` and paste the CloudFormation template into this file.
+Download the file named `SkillSync-ASG.yml` and use this file in your subsequent AWS CLI Commands. 
+
+`You also have the option of using the AWS Management Console to create the stack in Step 3 however specific steps for this is not provided here.` 
 
 #### **Step 3: Create the CloudFormation Stack**
 
@@ -30,6 +32,12 @@ aws cloudformation create-stack \
 ```
 
 Replace `<your-region>` with your desired AWS region, such as `us-east-1`.
+
+**CAPABILITY_IAM:** Required for templates that include IAM resources.
+
+**CAPABILITY_NAMED_IAM:** Required for templates that include IAM resources with custom names.
+
+**Purpose:** These capabilities ensure that you acknowledge the security implications of creating or modifying IAM resources through your CloudFormation template.
 
 #### **Step 4: Monitor the Stack Creation**
 
@@ -55,7 +63,7 @@ aws cloudformation update-stack \
 ```
 
 
-#### **Verifying Auto Scaling Activities using Stress Tool**
+### **Verifying Auto Scaling Activities using Stress Tool**
 
 To test the scaling in and scaling out of your Auto Scaling Group (ASG), you can simulate load on your EC2 instances using a tool like `stress`. Here’s a step-by-step guide on how to do this:
 
